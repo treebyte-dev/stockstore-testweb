@@ -3,15 +3,22 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div>
-    <h1> Pagina homepage</h1>
-    {% for post in posts %}
-    <h5>{{post.title}}</h5>
-    <p>{{post.body}}</p>
-    {% endfor %}
+<div class="container content-container">
+    <div class="row no-gutters">
+        <div class="col-md-9 order-md-2">
+            {% for post in posts %}
+                <div class="single-post-home">
+                    <h5>{{ post.title }}</h5>
+                    <p>{{ post.body }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-3 order-md-1">
+            <div class="about-snippet-block text-center">
+                {% include 'about_me_snippet.html' %}
+             </div>
+        </div>
+    </div>
 
-    {% if boolean_flag %}
-    <p>Boolean flag: True</p>
-    {% endif %}
 </div>
 {% endblock %}

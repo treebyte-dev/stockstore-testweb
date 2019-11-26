@@ -4,8 +4,13 @@ from blog import app
 
 @app.route("/")
 def homepage():
-    posts = [{"title":"Primo titolo", "body": "corpo del primo post"  },
+    posts = [{"title": "Primo titolo", "body": "corpo del primo post"},
              {"title": "Secondo titolo", "body": "corpo del secondo post"}
              ]
     some_boolean_flag = True
     return render_template("homepage.html", posts=posts, boolean_flag=some_boolean_flag)
+
+
+@app.route("/about")
+def about():
+    return render_template("about_page.html")
