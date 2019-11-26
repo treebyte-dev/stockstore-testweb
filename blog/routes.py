@@ -1,5 +1,11 @@
+from flask import render_template
 from blog import app
+
 
 @app.route("/")
 def homepage():
-    return "<h1> Home Page </h1>"
+    posts = [{"title":"Primo titolo", "body": "corpo del primo post"  },
+             {"title": "Secondo titolo", "body": "corpo del secondo post"}
+             ]
+    some_boolean_flag = True
+    return render_template("homepage.html", posts=posts, boolean_flag=some_boolean_flag)
