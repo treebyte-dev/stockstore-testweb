@@ -18,8 +18,8 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(250), nullable=False)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
-    def __repr__(self):
-        return f"User('{self.id}', '{self.username}', '{self.email}')"
+  #  def __repr__(self):
+  #      return f'User({self.id}, {self.username}, {self.email})'
 
     def set_password_hash(self, password):
         self.password = generate_password_hash(password)
@@ -37,5 +37,5 @@ class Post(db.Model):
     body = db.Column(db.Text(), nullable=False)
     image = db.Column(db.String(120))
 
-    def __repr__(self):
-        return f"Post('{self.id}', '{self.title}')"
+  #  def __repr__(self):
+  #      return f"Post('{self.id}', '{self.title}')"
